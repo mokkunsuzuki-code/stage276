@@ -1,68 +1,56 @@
-# Stage275: Key Usage Policy
+# Stage276: CI Evidence Automation
 
 ## Overview
 
-Stage275 introduces explicit key usage policy for QSP.
+Stage276 automates CI evidence generation for QSP.
 
-This stage defines:
+This stage bundles:
 
-- who may use keys
-- which keys may be used
-- what actions are allowed
-- what conditions must be satisfied before signing or approval
+- run information
+- artifact information
+- verification results
+- summary output
 
-It extends Stage274.
+using GitHub Actions.
 
 ## Files
 
-- `policy/key_usage_policy.yaml`
-- `docs/key_usage_policy.md`
-- `tools/verify_key_usage_policy.py`
-- `out/key_usage_policy_evidence.json`
-
-## Actors
-
-- CI
-- Human reviewer
-- Future YubiKey holder
-
-## Key Classes
-
-- CI managed key
-- Human approval key
-- Future YubiKey approval key
+- `.github/workflows/stage276-ci-evidence.yml`
+- `docs/stage276_ci_evidence.md`
+- `tools/build_stage276_summary.py`
+- `tools/verify_stage276_evidence.py`
+- `out/ci_evidence/stage276_summary.json`
+- `out/ci_evidence/verify_stage276_result.json`
 
 ## What This Stage Adds
 
-- explicit actor separation
-- explicit signing conditions
-- explicit forbidden actions
-- future YubiKey integration path
+- automatic CI evidence generation
+- automatic verification output
+- artifact preservation in GitHub Actions
+- structured summary for later review
 
-## Evidence
+## Local Run
 
-Run:
+Run locally:
 
 ```bash
-python3 tools/verify_key_usage_policy.py
-
-This generates:
-
-out/key_usage_policy_evidence.json
+python3 tools/build_stage276_summary.py
+python3 tools/verify_stage276_evidence.py
+Generated Evidence
+out/ci_evidence/stage276_summary.json
+out/ci_evidence/verify_stage276_result.json
 Security Meaning
 
-Before this stage, the project defined where keys are protected.
+Before this stage, trust depended on definitions and policy.
 
-This stage defines how keys may be used.
+Stage276 adds automated execution evidence.
 
-That means trust is no longer based only on possession of keys,
-but also on policy, approval path, and actor separation.
+This means the project can now show not only how verification should work,
+but also that it was executed in CI and preserved as artifacts.
 
 Limitations
 
-This stage does NOT yet prove live hardware-token approval.
-
-YubiKey integration remains pending.
+This stage does NOT yet prove external independent re-execution.
 
 License
 

@@ -1,0 +1,17 @@
+{
+  "stage": "Stage276",
+  "ci_evidence": true,
+  "run_info": {
+    "run_id": "local",
+    "run_number": "local",
+    "workflow": "local",
+    "sha": "local",
+    "ref": "local",
+    "actor": "local"
+  },
+  "artifact_info": {
+    "summary_file": "out/ci_evidence/stage276_summary.json",
+    "verify_file": "out/ci_evidence/verify_stage276_result.json"
+  },
+  "status": "summary_generated"
+}

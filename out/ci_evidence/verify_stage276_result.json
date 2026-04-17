@@ -1,0 +1,13 @@
+{
+  "stage": "Stage276",
+  "summary_exists": true,
+  "run_info_present": true,
+  "artifact_info_present": true,
+  "checks": {
+    "has_run_id": true,
+    "has_workflow": true,
+    "has_summary_file_reference": true,
+    "has_verify_file_reference": true
+  },
+  "result": "verified"
+}
